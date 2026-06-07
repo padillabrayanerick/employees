@@ -1,0 +1,440 @@
+{
+	"info": {
+		"_postman_id": "a239edd8-2458-4e1e-ae53-08ad4f53528f",
+		"name": "Employees API",
+		"description": "Documentación de API para gestión de empleados\n\nContact Support:\n Name: Erick Padilla\n Email: berick.padilla@icloud.com",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "28585142"
+	},
+	"item": [
+		{
+			"name": "employees",
+			"item": [
+				{
+					"name": "{id}",
+					"item": [
+						{
+							"name": "get By Id",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "*/*"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/employees/9",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"employees",
+										"9"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "OK",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "*/*"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/employees/:id",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"employees",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "text",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "*/*"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"id\": \"<long>\",\n  \"firstName\": \"<string>\",\n  \"secondName\": \"<string>\",\n  \"lastName\": \"<string>\",\n  \"motherLastName\": \"<string>\",\n  \"age\": \"<integer>\",\n  \"sex\": \"FEMALE\",\n  \"dateOfBirth\": \"<date>\",\n  \"position\": \"<string>\",\n  \"createdAt\": \"<dateTime>\",\n  \"active\": \"<boolean>\"\n}"
+								}
+							]
+						},
+						{
+							"name": "update",
+							"request": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "*/*"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"firstName\": \"Erick\",\n    \"secondName\": \"Jesus\",\n    \"lastName\": \"Sanchez\",\n    \"motherLastName\": \"Sanchez\",\n    \"age\": 25,\n    \"sex\": \"MALE\",\n    \"dateOfBirth\": \"03-07-2000\",\n    \"position\": \"Asistente\",\n    \"active\": true\n}",
+									"options": {
+										"raw": {
+											"headerFamily": "json",
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/employees/5",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"employees",
+										"5"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "OK",
+									"originalRequest": {
+										"method": "PUT",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											},
+											{
+												"key": "Accept",
+												"value": "*/*"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"firstName\": \"<string>\",\n  \"lastName\": \"<string>\",\n  \"position\": \"<string>\",\n  \"secondName\": \"<string>\",\n  \"motherLastName\": \"<string>\",\n  \"age\": \"<integer>\",\n  \"sex\": \"MALE\",\n  \"dateOfBirth\": \"<date>\",\n  \"active\": \"<boolean>\"\n}",
+											"options": {
+												"raw": {
+													"headerFamily": "json",
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/employees/:id",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"employees",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "text",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "*/*"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"id\": \"<long>\",\n  \"firstName\": \"<string>\",\n  \"secondName\": \"<string>\",\n  \"lastName\": \"<string>\",\n  \"motherLastName\": \"<string>\",\n  \"age\": \"<integer>\",\n  \"sex\": \"FEMALE\",\n  \"dateOfBirth\": \"<date>\",\n  \"position\": \"<string>\",\n  \"createdAt\": \"<dateTime>\",\n  \"active\": \"<boolean>\"\n}"
+								}
+							]
+						},
+						{
+							"name": "delete",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/employees/7",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"employees",
+										"7"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "OK",
+									"originalRequest": {
+										"method": "DELETE",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/employees/:id",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"employees",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "text",
+									"header": [],
+									"cookie": [],
+									"body": ""
+								}
+							]
+						}
+					]
+				},
+				{
+					"name": "search",
+					"item": [
+						{
+							"name": "search By Name",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "*/*"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/employees/search?name=ana",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"employees",
+										"search"
+									],
+									"query": [
+										{
+											"key": "name",
+											"value": "ana",
+											"description": "(Required) "
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "OK",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "*/*"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/employees/search?name=<string>",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"employees",
+												"search"
+											],
+											"query": [
+												{
+													"key": "name",
+													"value": "<string>",
+													"description": "(Required) "
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "text",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "*/*"
+										}
+									],
+									"cookie": [],
+									"body": "[\n  {\n    \"id\": \"<long>\",\n    \"firstName\": \"<string>\",\n    \"secondName\": \"<string>\",\n    \"lastName\": \"<string>\",\n    \"motherLastName\": \"<string>\",\n    \"age\": \"<integer>\",\n    \"sex\": \"FEMALE\",\n    \"dateOfBirth\": \"<date>\",\n    \"position\": \"<string>\",\n    \"createdAt\": \"<dateTime>\",\n    \"active\": \"<boolean>\"\n  },\n  {\n    \"id\": \"<long>\",\n    \"firstName\": \"<string>\",\n    \"secondName\": \"<string>\",\n    \"lastName\": \"<string>\",\n    \"motherLastName\": \"<string>\",\n    \"age\": \"<integer>\",\n    \"sex\": \"OTHER\",\n    \"dateOfBirth\": \"<date>\",\n    \"position\": \"<string>\",\n    \"createdAt\": \"<dateTime>\",\n    \"active\": \"<boolean>\"\n  }\n]"
+								}
+							]
+						}
+					]
+				},
+				{
+					"name": "get All",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "*/*"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/employees",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"employees"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "OK",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "*/*"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/employees",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"employees"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "text",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "*/*"
+								}
+							],
+							"cookie": [],
+							"body": "[\n  {\n    \"id\": \"<long>\",\n    \"firstName\": \"<string>\",\n    \"secondName\": \"<string>\",\n    \"lastName\": \"<string>\",\n    \"motherLastName\": \"<string>\",\n    \"age\": \"<integer>\",\n    \"sex\": \"FEMALE\",\n    \"dateOfBirth\": \"<date>\",\n    \"position\": \"<string>\",\n    \"createdAt\": \"<dateTime>\",\n    \"active\": \"<boolean>\"\n  },\n  {\n    \"id\": \"<long>\",\n    \"firstName\": \"<string>\",\n    \"secondName\": \"<string>\",\n    \"lastName\": \"<string>\",\n    \"motherLastName\": \"<string>\",\n    \"age\": \"<integer>\",\n    \"sex\": \"OTHER\",\n    \"dateOfBirth\": \"<date>\",\n    \"position\": \"<string>\",\n    \"createdAt\": \"<dateTime>\",\n    \"active\": \"<boolean>\"\n  }\n]"
+						}
+					]
+				},
+				{
+					"name": "create",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Accept",
+								"value": "*/*"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "[\n{\n\n        \"lastName\": \"Armando\",\n        \"motherLastName\": \"Arreguin\",\n        \"age\": 25,\n        \"sex\": \"MALE\",\n        \"dateOfBirth\": \"03-07-2000\",\n        \"position\": \"Asistente\",\n        \"active\": true\n    },\n    {\n        \"firstName\": \"Ana\",\n        \"secondName\": \"Guadalupe\",\n\n        \"age\": 27,\n        \"sex\": \"FEMALE\",\n        \"dateOfBirth\": \"26-03-1998\",\n        \"position\": \"Director\",\n        \"active\": true\n    },\n    {\n        \"firstName\": \"Julia\",\n        \"secondName\": \"Ana\",\n        \"lastName\": \"Mar\",\n        \"age\": 30,\n        \"sex\": \"FEMALE\",\n        \"dateOfBirth\": \"18-01-1995\",\n\n        \"active\": true\n    }\n]",
+							"options": {
+								"raw": {
+									"headerFamily": "json",
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/employees",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"employees"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "OK",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "*/*"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "[\n  {\n    \"firstName\": \"<string>\",\n    \"lastName\": \"<string>\",\n    \"position\": \"<string>\",\n    \"secondName\": \"<string>\",\n    \"motherLastName\": \"<string>\",\n    \"age\": \"<integer>\",\n    \"sex\": \"FEMALE\",\n    \"dateOfBirth\": \"<date>\",\n    \"active\": \"<boolean>\"\n  },\n  {\n    \"firstName\": \"<string>\",\n    \"lastName\": \"<string>\",\n    \"position\": \"<string>\",\n    \"secondName\": \"<string>\",\n    \"motherLastName\": \"<string>\",\n    \"age\": \"<integer>\",\n    \"sex\": \"OTHER\",\n    \"dateOfBirth\": \"<date>\",\n    \"active\": \"<boolean>\"\n  }\n]",
+									"options": {
+										"raw": {
+											"headerFamily": "json",
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/employees",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"employees"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "text",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "*/*"
+								}
+							],
+							"cookie": [],
+							"body": "[\n  {\n    \"id\": \"<long>\",\n    \"firstName\": \"<string>\",\n    \"secondName\": \"<string>\",\n    \"lastName\": \"<string>\",\n    \"motherLastName\": \"<string>\",\n    \"age\": \"<integer>\",\n    \"sex\": \"FEMALE\",\n    \"dateOfBirth\": \"<date>\",\n    \"position\": \"<string>\",\n    \"createdAt\": \"<dateTime>\",\n    \"active\": \"<boolean>\"\n  },\n  {\n    \"id\": \"<long>\",\n    \"firstName\": \"<string>\",\n    \"secondName\": \"<string>\",\n    \"lastName\": \"<string>\",\n    \"motherLastName\": \"<string>\",\n    \"age\": \"<integer>\",\n    \"sex\": \"OTHER\",\n    \"dateOfBirth\": \"<date>\",\n    \"position\": \"<string>\",\n    \"createdAt\": \"<dateTime>\",\n    \"active\": \"<boolean>\"\n  }\n]"
+						}
+					]
+				}
+			]
+		}
+	],
+	"variable": [
+		{
+			"key": "baseUrl",
+			"value": "http://localhost:8080"
+		}
+	]
+}
