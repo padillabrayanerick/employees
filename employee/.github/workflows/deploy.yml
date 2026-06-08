@@ -1,0 +1,81 @@
+name: CI-CD Pipeline
+
+on:
+push:
+branches:
+  - dev
+  - qa
+  - main
+
+jobs:
+
+build:
+runs-on: ubuntu-latest
+
+steps:
+  - name: Checkout code
+    uses: actions/checkout@v3
+
+  - name: Set up Java
+    uses: actions/setup-java@v3
+    with:
+      distribution: 'temurin'
+      java-version: '17'
+
+  - name: Build JAR
+    run: mvn clean package -DskipTests
+
+deploy-dev:
+if: github.ref == 'refs/heads/dev'
+needs: build
+runs-on: ubuntu-latest
+
+steps:
+  - name: Deploy to DEV
+    uses: appleboy/ssh-action@v1.0.0
+    with:
+      host: ${{ secrets.EC2_DEV_HOST }}
+      username: ${{ secrets.EC2_USER }}
+      key: ${{ secrets.SSH_PRIVATE_KEY }}
+      script: |
+        cd /home/ec2-user/employees/
+        git pull
+        docker-compose down
+        docker-compose up -d --build
+
+deploy-qa:
+if: github.ref == 'refs/heads/qa'
+needs: build
+runs-on: ubuntu-latest
+
+steps:
+  - name: Deploy to QA
+    uses: appleboy/ssh-action@v1.0.0
+    with:
+      host: ${{ secrets.EC2_QA_HOST }}
+      username: ${{ secrets.EC2_USER }}
+      key: ${{ secrets.SSH_PRIVATE_KEY }}
+      script: |
+        cd /home/ec2-user/employees/
+        git pull
+        docker-compose down
+        docker-compose up -d --build
+
+deploy-prod:
+if: github.ref == 'refs/heads/main'
+needs: build
+runs-on: ubuntu-latest
+
+steps:
+  - name: Deploy to PROD
+    uses: appleboy/ssh-action@v1.0.0
+    with:
+      host: ${{ secrets.EC2_PROD_HOST }}
+      username: ${{ secrets.EC2_USER }}
+      key: ${{ secrets.SSH_PRIVATE_KEY }}
+      script: |
+        cd /home/ec2-user/employees/
+        git pull
+        docker-compose down
+        docker-compose up -d --build
+  
