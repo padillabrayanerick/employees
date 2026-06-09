@@ -60,7 +60,7 @@ public class EmployeeController {
 
         response.setStatus("OK");
         response.setCode(String.valueOf(HttpStatus.OK.value()));
-        response.setResponse("Empleado con id "+id+" eliminado correctamente");
+        response.setResponse("Empleado con id: "+id+" eliminado correctamente");
         return ResponseEntity.status(HttpStatus.OK).body(response);
 //        return ResponseEntity.noContent().build();
     }
